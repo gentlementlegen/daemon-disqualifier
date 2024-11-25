@@ -10,8 +10,7 @@
     "node": ">=20.10.0"
   },
   "scripts": {
-    "start": "tsx src/index.ts",
-    "prebuild": "dotenv -- cross-env yarn supabase:generate:remote",
+    "prebuild": "dotenv -- cross-env bun run supabase:generate:remote",
     "format:lint": "eslint --fix .",
     "format:prettier": "prettier --write .",
     "format:cspell": "cspell **/*",
@@ -38,8 +37,7 @@
     "@ubiquity-os/ubiquity-os-logger": "^1.3.2",
     "dotenv": "16.4.5",
     "luxon": "3.4.4",
-    "ms": "2.1.3",
-    "tsx": "4.11.2"
+    "ms": "2.1.3"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
@@ -75,7 +73,7 @@
   },
   "lint-staged": {
     "*.ts": [
-      "yarn prettier --write",
+      "bun prettier --write",
       "eslint --fix"
     ],
     "src/**.{ts,json}": [
@@ -86,6 +84,5 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  },
-  "packageManager": "yarn@1.22.22"
+  }
 }
